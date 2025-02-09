@@ -2,6 +2,9 @@
 
 OnChainCred is an **AI-powered knowledge base and on-chain saving agent** that helps **small businesses (SMBs) and startups** build their **on-chain credit history**.  
 
+![Client Application](assets/Frontend_look.png)
+*How our client application is looking like*
+
 Powered by **Llama-3 AI** and integrated with **Privy, The Graph, and Collab.Land**, OnChainCred provides:  
 ✅ **AI-driven financial guidance** for credit-building strategies  
 ✅ **Seamless wallet onboarding** for non-Web3 users  
@@ -9,9 +12,8 @@ Powered by **Llama-3 AI** and integrated with **Privy, The Graph, and Collab.Lan
 
 ---
 
-## 🔗 **Live Demo & Repository**
-- 🎥 **Demo Video:** [Add Link]  
-- 🌐 **Live App:** [Add Link]  
+## 🔗 **Live Demo & Repository** 
+- 🌐 **Live App:** [Onchain Credit Agent](https://onchain-credit-agent.vercel.app/)  
 - 📂 **GitHub Repo:** [https://github.com/johnaschami/onchain-credit-agent](https://github.com/johnaschami/onchain-credit-agent)  
 
 ---
