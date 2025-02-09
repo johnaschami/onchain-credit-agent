@@ -1,27 +1,54 @@
-import { useState } from "react";
-import axios from "axios";
+import { useState } from 'react';
+import axios from 'axios';
 
 export default function Home() {
-    const [question, setQuestion] = useState("");
-    const [answer, setAnswer] = useState("");
+    const [question, setQuestion] = useState('');
+    const [response, setResponse] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    const askAI = async () => {
-        const response = await axios.post("http://localhost:5000/ask", { question });
-        setAnswer(response.data.choices[0].message.content);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        try {
+            const result = await axios.post('/api/chat', { question });
+            setResponse(result.data.choices[0].message.content);
+        } catch (error) {
+            console.error('Error:', error);
+            setResponse('Error: Failed to get response from AI');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
-        <div style={{ padding: "2rem", fontFamily: "Arial" }}>
-            <h1>AI On-Chain Credit Knowledge Base</h1>
-            <input 
-                type="text" 
-                value={question} 
-                onChange={(e) => setQuestion(e.target.value)} 
-                placeholder="Ask about on-chain credit..." 
-                style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-            />
-            <button onClick={askAI} style={{ padding: "10px 20px", cursor: "pointer" }}>Ask AI</button>
-            <p><strong>Response:</strong> {answer}</p>
+        <div className="container mx-auto p-4">
+            <h1 className="text-2xl mb-4">AI Chat</h1>
+            
+            <form onSubmit={handleSubmit} className="mb-4">
+                <input
+                    type="text"
+                    value={question}
+                    onChange={(e) => setQuestion(e.target.value)}
+                    placeholder="Ask a question..."
+                    className="border p-2 mr-2"
+                />
+                <button 
+                    type="submit"
+                    disabled={loading}
+                    className="bg-blue-500 text-white px-4 py-2 rounded"
+                >
+                    {loading ? 'Sending...' : 'Send'}
+                </button>
+            </form>
+
+            {response && (
+                <div className="mt-4 p-4 border rounded">
+                    <h2 className="font-bold mb-2">Response:</h2>
+                    <p>{response}</p>
+                </div>
+            )}
         </div>
     );
 }
+
