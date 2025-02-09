@@ -2,7 +2,7 @@
 
 OnChainCred is an **AI-powered knowledge base and on-chain saving agent** that helps **small businesses (SMBs) and startups** build their **on-chain credit history**.  
 
-![Client Application](assets/Frontend_look.png)
+![Client Application](assets/frontend_look1.png)
 *How our client application is looking like*
 
 Powered by **Llama-3 AI** and integrated with **Privy, The Graph, and Collab.Land**, OnChainCred provides:  
@@ -41,7 +41,12 @@ Powered by **Llama-3 AI** and integrated with **Privy, The Graph, and Collab.Lan
 
 ---
 
-## 🛠 **Setup & Installation**
+## 🛠 **Setup, Installation* and Errors**
+
+![Example of errors](assets/Gaianet_API_server_error.png)
+*When you prompt our agent, you might experience errors like this one. This is because the API server is not running. You can fix this by running the server.js file in the backend folder or by changing the model to a different one.*
+
+
 ### **1️⃣ Clone the Repository**
 ```bash
 git clone https://github.com/johnaschami/onchain-credit-agent.git
