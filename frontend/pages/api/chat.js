@@ -7,20 +7,21 @@ export default async function handler(req, res) {
 
     try {
         const { question } = req.body;
-        
+        console.log('Sending question to backend:', question);
+
         const response = await axios.post('http://localhost:5000/ask', 
             { question },
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Accept': 'application/json'
                 }
             }
         );
 
+        console.log('Response from backend:', response.data);
         res.status(200).json(response.data);
     } catch (error) {
-        console.error('API Error:', error);
+        console.error('API Error:', error.response?.data || error.message);
         res.status(500).json({ 
             error: 'Failed to get AI response',
             details: error.message 
